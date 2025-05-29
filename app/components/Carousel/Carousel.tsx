@@ -23,6 +23,7 @@ interface CarouselProps {
   slidesOnLg?: number;
   slidesOnXl?: number;
   slidesOn2Xl?: number;
+  direction?: "horizontal" | "vertical";
   spaceBetween: number;
 }
 
@@ -40,10 +41,12 @@ const Carousel: React.FC<CarouselProps> = ({
   slidesOnXl = 1,
   slidesOn2Xl = 1,
   spaceBetween = 30,
+  direction = "horizontal",
 }) => {
   return (
     <Box className="w-full">
       <Swiper
+        direction={direction}
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}

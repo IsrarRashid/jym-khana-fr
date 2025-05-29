@@ -19,7 +19,13 @@ const BilledList = ({ billSummary }: { billSummary: BillSummay[] }) => {
                 );
               } else if (i === billSummary.length) {
                 return (
-                  <Table.ColumnHeaderCell key={i} className="!rounded-tl-lg">
+                  <Table.ColumnHeaderCell key={i}>
+                    {convertToTitleCase(bill)}
+                  </Table.ColumnHeaderCell>
+                );
+              } else if (i === Object?.keys(billSummary[0]).length - 1) {
+                return (
+                  <Table.ColumnHeaderCell key={i} className="!rounded-tr-lg">
                     {convertToTitleCase(bill)}
                   </Table.ColumnHeaderCell>
                 );

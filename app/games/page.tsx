@@ -38,10 +38,12 @@ interface Response {
 const GamesPage = async ({ searchParams }: Props) => {
   const { fromDate, toDate } = await searchParams;
   const today = new Date();
-  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  // const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const yesterday = new Date(today); // create a copy of today
+  yesterday.setDate(today.getDate() - 1); // modify the copy
 
   const data = {
-    fromDate: fromDate ? fromDate : firstDayOfMonth.toISOString().split("T")[0],
+    fromDate: fromDate ? fromDate : yesterday.toISOString().split("T")[0],
     toDate: toDate ? toDate : new Date().toISOString().split("T")[0],
   };
 

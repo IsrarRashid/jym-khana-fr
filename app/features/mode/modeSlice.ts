@@ -7,7 +7,7 @@ export type ModeType = "light" | "dark" | "inherit";
 
 // Define initial state with the correct type
 const initialState: { currentMode: ModeType } = {
-  currentMode: "dark",
+  currentMode: "light",
 };
 
 const modeSlice = createSlice({

@@ -1,8 +1,8 @@
 import { Button } from "@radix-ui/themes";
 import { format } from "date-fns";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { DateRangePicker, RangeKeyDict, Range } from "react-date-range";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { DateRangePicker, Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css"; // Main style file
 import "react-date-range/dist/theme/default.css"; // Theme CSS
 

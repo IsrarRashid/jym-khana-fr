@@ -11,12 +11,24 @@
 }
 
 /* Apply colors based on the theme */
-.light {
+/* .light {
   background-color: var(--theme-light-bg) !important;
   color: var(--theme-light-text) !important;
 }
 
 .dark {
+  background-color: var(--theme-dark-bg) !important;
+  color: var(--theme-dark-text) !important;
+} */
+
+/* Only apply on a specific app wrapper, not globally */
+
+.app-container.light {
+  background-color: var(--theme-light-bg) !important;
+  color: var(--theme-light-text) !important;
+}
+
+.app-container.dark {
   background-color: var(--theme-dark-bg) !important;
   color: var(--theme-dark-text) !important;
 }

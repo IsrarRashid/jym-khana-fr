@@ -2,12 +2,27 @@ import InstallReceivableCharts from "../../components/InstallReceivableCharts/In
 import RecoveryOverview from "../../components/RecoveryOverview/RecoveryOverview";
 import { BillingDetail } from "../../page";
 import InsightsPanel from "./InsightsPanel/InsightsPanel";
+import { ComplainType, ComplainStatus } from "./InsightsPanel/types/status";
 
-const Billing = ({ data }: { data: BillingDetail }) => {
+interface Props {
+  data: BillingDetail;
+  complainType?: ComplainType;
+  complainStatus?: ComplainStatus;
+}
+
+const Billing = ({ data, complainType, complainStatus }: Props) => {
+  console.log("in billing component CS", complainStatus);
+  console.log("in billing component CT", complainType);
   return (
     <>
       {/* <Header /> */}
-      <InsightsPanel data={data} />
+      <InsightsPanel
+        data={data}
+        searchParams={{
+          ...(complainType && { complainType }),
+          ...(complainStatus && { complainStatus }),
+        }}
+      />
       <InstallReceivableCharts />
       <RecoveryOverview />
     </>

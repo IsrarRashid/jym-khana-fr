@@ -12,7 +12,7 @@ import {
 } from "@radix-ui/themes";
 import classnames from "classnames";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -121,6 +121,8 @@ interface Props {
 const MobileNavLinks = ({ showDropDown, setShowDropDown }: Props) => {
   const theme = useThemeContext();
   const currentPath = usePathname();
+  const router = useRouter();
+
   const links = [
     { label: "Food", href: "/food" },
     { label: "Kitchen", href: "/kitchen" },
@@ -143,11 +145,19 @@ const MobileNavLinks = ({ showDropDown, setShowDropDown }: Props) => {
               "bg-[var(--accent-9)] !text-white":
                 link.href.split("/")[1] === currentPath.split("/")[1],
             })}
-            onClick={() => setShowDropDown(!showDropDown)}
+            onClick={() => {
+              router.push(link.href);
+              setShowDropDown(!showDropDown);
+            }}
           >
-            <Link href={link.href}>{link.label}</Link>
+            {link.label}
           </li>
         ))}
+        <li className="nav-link py-3 px-5">
+          <Box>
+            <AuthStatus />
+          </Box>
+        </li>
       </ul>
     </>
   );
@@ -156,6 +166,7 @@ const MobileNavLinks = ({ showDropDown, setShowDropDown }: Props) => {
 const AuthStatus = () => {
   const status: string = "authenticated";
   const theme = useThemeContext();
+  const router = useRouter();
 
   if (status === "loading") return null;
   if (status === "unauthenticated")
@@ -202,11 +213,11 @@ const AuthStatus = () => {
             <DropdownMenu.Label>
               <Text size="2">admin@gmail.com</Text>
             </DropdownMenu.Label>
-            <DropdownMenu.Item>
-              <Link href="/settings">Settings</Link>
+            <DropdownMenu.Item onClick={() => router.push("/settings")}>
+              Settings
             </DropdownMenu.Item>
-            <DropdownMenu.Item>
-              <Link href="/signout">Log out</Link>
+            <DropdownMenu.Item onClick={() => router.push("/signout")}>
+              Log out
             </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Root>

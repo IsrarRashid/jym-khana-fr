@@ -1,8 +1,8 @@
 import { Button } from "@radix-ui/themes";
 import { format } from "date-fns";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { DateRangePicker, RangeKeyDict, Range } from "react-date-range";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { DateRangePicker, Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css"; // Main style file
 import "react-date-range/dist/theme/default.css"; // Theme CSS
 
@@ -26,7 +26,6 @@ import "react-date-range/dist/theme/default.css"; // Theme CSS
 // }: DateRangeFilterProps) => {
 const DateRangeFilter = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [state, setState] = useState<Range[]>([
     {
       startDate: undefined, // Initially no start date selected

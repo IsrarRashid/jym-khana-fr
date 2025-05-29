@@ -17,21 +17,24 @@ const ThemeSwitcher = ({ children }: PropsWithChildren) => {
 
   return (
     // <ThemeProvider attribute="class">
+
     <Theme
       panelBackground="translucent"
       accentColor={currentColor}
       radius="large"
       appearance={currentMode}
     >
-      {children}
-      {/* <Button
+      <div className={`app-container ${currentMode}`}>
+        {children}
+        {/* <Button
         className="absolute bottom-0 right-0"
         onClick={() => setMode(!mode)}
         color="bronze"
       >
         Mode Switcher
       </Button> */}
-      {/* <ThemePanel /> */}
+        {/* <ThemePanel /> */}
+      </div>
     </Theme>
     // </ThemeProvider>
   );

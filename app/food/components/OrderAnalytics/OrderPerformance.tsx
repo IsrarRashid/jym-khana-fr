@@ -44,16 +44,16 @@ const OrderPerformance = ({ data }: { data: OrderTakerPerformance[] }) => {
         <Table.Root size="3">
           <Table.Header className="text-center">
             <Table.Row className="text-secondary font-normal">
-              <Table.ColumnHeaderCell className="shadow-none pb-0">
+              <Table.ColumnHeaderCell className="!shadow-none pb-0">
                 Order Taker
               </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="shadow-none pb-0">
+              <Table.ColumnHeaderCell className="!shadow-none pb-0">
                 Orders
               </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="shadow-none pb-0">
+              <Table.ColumnHeaderCell className="!shadow-none pb-0">
                 Sales
               </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="shadow-none pb-0">
+              <Table.ColumnHeaderCell className="!shadow-none pb-0">
                 Achieve(%)
               </Table.ColumnHeaderCell>
             </Table.Row>

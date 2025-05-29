@@ -15,7 +15,7 @@ const RoomSales = ({ data }: { data: RoomSalesList[] }) => {
     <Box className="bg-theme rounded-[14px]" p="4">
       <Flex justify="between" align="center">
         <Heading className="font-semibold" size="6">
-          Room Sales
+          Games
         </Heading>
         {/* <Flex>
           In this Week <GoTriangleDown size={21} />

@@ -2,7 +2,7 @@
 
 import classnames from "classnames";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { RestaurantsList } from "./Header";
 
 const RestaurantTabsFilter = ({
@@ -15,18 +15,21 @@ const RestaurantTabsFilter = ({
   );
   const router = useRouter();
 
-  const handleClick = (restaurantId: number) => {
-    setSelectedButton(restaurantId);
-    const query = restaurantId ? `?restaurantId=${restaurantId}` : "";
-    router.push("/food" + query);
-  };
+  const handleClick = useCallback(
+    (restaurantId: number) => {
+      setSelectedButton(restaurantId);
+      const query = restaurantId ? `?restaurantId=${restaurantId}` : "";
+      router.push("/food" + query);
+    },
+    [router]
+  );
 
   useEffect(() => {
     handleClick(1);
-  }, [router]);
+  }, [router, handleClick]);
 
   return (
-    <ul className={`flex space-x-6 items-center mb-4`}>
+    <ul className={`flex flex-wrap space-x-6 items-center mb-4`}>
       {restaurants?.restaurant?.map((restaurant) => (
         <li
           key={restaurant.resId}
@@ -37,7 +40,7 @@ const RestaurantTabsFilter = ({
         >
           <button
             className={classnames({
-              "text-secondary font-normal text-xl bg-transparent transition-all cursor-pointer":
+              "text-secondary font-normal text-xl bg-transparent transition-all cursor-pointer text-nowrap":
                 true,
               "!text-2xl !font-bold !text-[var(--accent-9)]":
                 selectedButton === restaurant.resId,

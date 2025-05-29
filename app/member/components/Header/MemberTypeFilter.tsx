@@ -2,7 +2,7 @@
 
 import classnames from "classnames";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const MemberType = {
   MEMBER_DETAIL: "MEMBER_DETAIL",

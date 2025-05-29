@@ -1,25 +1,13 @@
 "use client";
-import {
-  Box,
-  Button,
-  Dialog,
-  Flex,
-  IconButton,
-  Text,
-  useThemeContext,
-} from "@radix-ui/themes";
+import { Box, Button, Dialog, Flex, IconButton, Text } from "@radix-ui/themes";
 import { FaChevronDown } from "react-icons/fa";
 import { MdOutlineClose } from "react-icons/md";
 import DateRangeFilter from "./DateRangeFilter";
 
 const DatePicker = () => {
-  const theme = useThemeContext();
-
   return (
     <Button
-      className={`bg-theme !font-normal !text-xl !lg:w-80 !w-auto !rounded-xl !py-6 !px-4 ${
-        theme.appearance === "light" ? "text-white" : "!text-secondary "
-      } !outline !outline-whiteSecondary`}
+      className={`bg-theme !font-normal !text-xl !w-fit !rounded-xl !py-6 !px-4 !text-secondary !outline !outline-whiteSecondary`}
     >
       <Dialog.Root>
         <Dialog.Trigger>

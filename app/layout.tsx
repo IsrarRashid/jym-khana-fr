@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import "./theme-config.css";
 import ThemeSwitcher from "./ThemeSwitcher";
 import ReduxProvider from "./components/ReduxProvider";
+import ToastContainers from "./components/ToastContainers";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
             <main className="p-5 ">{children}</main>
           </ThemeSwitcher>
         </ReduxProvider>
+        <ToastContainers />
       </body>
     </html>
   );

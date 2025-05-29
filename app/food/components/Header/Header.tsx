@@ -1,9 +1,8 @@
-import { Flex } from "@radix-ui/themes";
+import { Box } from "@radix-ui/themes";
 import DatePicker from "./DatePicker";
 import GalleryView from "./GalleryView";
 import { FOOD_DASHBOARD_API } from "@/app/APIs";
 import RestaurantTabsFilter from "./RestaurantTabsFilter";
-import { useRouter, useSearchParams } from "next/navigation";
 
 export interface Restaurant {
   resId: number;
@@ -30,13 +29,17 @@ const Header = async () => {
   console.log("response", response);
 
   return (
-    <Flex justify="between" mb="4" wrap="wrap">
-      <RestaurantTabsFilter restaurants={response} />
-      <Flex justify="between" gap="5" wrap="wrap">
-        <GalleryView />
-        <DatePicker />
-      </Flex>
-    </Flex>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
+      <Box className="lg:!col-span-2">
+        <RestaurantTabsFilter restaurants={response} />
+      </Box>
+      <Box>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <GalleryView />
+          <DatePicker />
+        </div>
+      </Box>
+    </div>
   );
 };
 
